@@ -1,9 +1,9 @@
 const virtualcam = require('../');
 
-const width = 1280;
-const height = 720;
-const fps = 30;
-const delay = 10;
+const width = 1920;
+const height = 1080;
+const fps = 60;
+const delay = 0;
 const frameMs = 1/fps * 1000;
 
 let timerId;
@@ -22,7 +22,8 @@ console.log(`virtual cam output started (${width}x${height} @ ${fps}fps)`);
 let i = 0;
 timerId = setInterval(() => {
     const frame = new Uint8Array(height * width * 4);
-    frame.fill(i % 255);
+    frame.fill(255);
     virtualcam.send(i, frame);
     i += 1;
+    //console.log("sent frame");
 }, frameMs);

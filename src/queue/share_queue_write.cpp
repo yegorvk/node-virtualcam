@@ -18,6 +18,8 @@ bool shared_queue_create(share_queue* q, int mode, int format,
 	int frame_size = 0;
 	const char* name = get_mapping_name(mode);
 
+	printf("Aboba: %s.", name);
+
 	if (mode < ModeAudio) {
 		frame_size = cal_video_buffer_size(format, width, height);
 	} else {
